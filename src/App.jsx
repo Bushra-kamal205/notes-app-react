@@ -15,7 +15,7 @@ function App() {
   // Fetch notes
   async function fetchData() {
     try {
-      const data = await axios.get("http://localhost:5000/notes");
+      const data = await axios.get(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/notes`);
       if (data.statusText !== "OK") throw new Error("Data not fetched");
       setNotes(data.data.note);
     } catch (err) {
@@ -31,7 +31,7 @@ function App() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/create", note);
+      await axios.post(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}`, note);
       setNote({ title: "", note: "" });
       fetchData();
       navigate("/");
@@ -43,7 +43,7 @@ function App() {
   // Delete note
   async function deleteHandler(id) {
     try {
-      await axios.delete(`http://localhost:5000/notes/${id}`);
+      await axios.delete(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/notes/${id}`);
       fetchData();
     } catch (err) {
       console.error(err);
