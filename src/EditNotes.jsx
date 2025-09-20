@@ -23,7 +23,7 @@ function EditNotes() {
   useEffect(() => {
     async function fetchSingleNote() {
       try {
-        const data = await axios.get(`http://localhost:5000/notes/${params.id}`);
+        const data = await axios.get(`${process.env.VITE_APP_BACKEND_URL}/notes/${params.id}`);
         setNote(data.data.note);
         if (editor) {
           editor.commands.setContent(data.data.note.note); // load into editor
@@ -45,7 +45,7 @@ function EditNotes() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/notes/${params.id}`, note);
+      await axios.patch(`${process.env.VITE_APP_BACKEND_URL}/notes/${params.id}`, note);
       navigate("/");
     } catch (err) {
       console.error(err);
