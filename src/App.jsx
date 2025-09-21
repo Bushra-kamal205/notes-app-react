@@ -33,7 +33,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      await axios.post(`${BASE_URL}/notes`, note);
+      await axios.post(`${BASE_URL}/create`, note);
       setNote({ title: "", note: "" });
       await fetchData();
       navigate("/");
