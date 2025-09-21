@@ -23,10 +23,10 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   useEffect(() => {
     async function fetchSingleNote() {
       try {
-        const {data} = await axios.get(`${BASE_URL}/notes/${params.id}`);
-        setNote(data.data.note);
+        const response = await axios.get(`${BASE_URL}/notes/${params.id}`);
+        setNote(response.data.note);
         if (editor) {
-          editor.commands.setContent(data.data.note.note); // load into editor
+          editor.commands.setContent(response.data.note.note); // load into editor
         }
       } catch (err) {
         console.error(err);
