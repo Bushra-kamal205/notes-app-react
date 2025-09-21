@@ -13,7 +13,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   // Setup Tiptap
   const editor = useEditor({
     extensions: [StarterKit, Underline],
-    content: "",
+    content: note.note,
     onUpdate: ({ editor }) => {
       setNote((prev) => ({ ...prev, note: editor.getHTML() }));
     },
@@ -46,6 +46,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
     e.preventDefault();
     try {
       await axios.patch(`${BASE_URL}/notes/${params.id}`, note);
+      editor.commands.clearContent(); 
       navigate("/");
     } catch (err) {
       console.error(err);

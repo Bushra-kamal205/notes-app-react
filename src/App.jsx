@@ -15,10 +15,8 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   // Fetch notes
   async function fetchData() {
     try {
-      console.log("Backend URL:", BASE_URL);
       const response = await axios.get(`${BASE_URL}/notes`);
       console.log("API response:", response.data);
-      // if (response.statusText !== "OK") throw new Error("Data not fetched");
       setNotes(response.data.note);
     } catch (err) {
     console.error("Error fetching notes:", err);
@@ -35,6 +33,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
     try {
       await axios.post(`${BASE_URL}/create`, note);
       setNote({ title: "", note: "" });
+      editor.commands.clearContent(); 
       await fetchData();
       navigate("/");
     } catch (err) {
