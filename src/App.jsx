@@ -55,7 +55,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     content: note.note,
-    title: note.note,
+    // title: note.note,
     onUpdate: ({ editor }) => {
       setNote({ ...note, note: editor.getHTML() });
     },
