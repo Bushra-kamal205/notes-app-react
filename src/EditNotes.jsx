@@ -47,7 +47,6 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
     e.preventDefault();
     try {
       await axios.patch(`${BASE_URL}/notes/${params.id}`, note);
-      editor.commands.clearContent(); 
       navigate("/");
     } catch (err) {
       console.error(err);
