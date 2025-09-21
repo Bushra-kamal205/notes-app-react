@@ -11,12 +11,12 @@ function App() {
   const [note, setNote] = useState({ title: "", note: "" });
   const [notes, setNotes] = useState([]);
   const navigate = useNavigate();
-
+const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   // Fetch notes
   async function fetchData() {
     try {
-      console.log("Backend URL:", process.env.VITE_APP_BACKEND_URL);
-      const data = await axios.get(`${process.env.VITE_APP_BACKEND_URL}/notes`);
+      console.log("Backend URL:", BASE_URL);
+      const data = await axios.get(`${BASE_URL}/notes`);
       if (data.statusText !== "OK") throw new Error("Data not fetched");
       setNotes(data.data.note);
     } catch (err) {
@@ -25,7 +25,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("Backend URL:", process.env.VITE_APP_BACKEND_URL);
     fetchData();
   }, []);
 
@@ -33,7 +32,7 @@ function App() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.VITE_APP_BACKEND_URL}`, note);
+      await axios.post(`${BASE_URL}`, note);
       setNote({ title: "", note: "" });
       fetchData();
       navigate("/");
@@ -45,7 +44,7 @@ function App() {
   // Delete note
   async function deleteHandler(id) {
     try {
-      await axios.delete(`${process.env.VITE_APP_BACKEND_URL}/notes/${id}`);
+      await axios.delete(`${BASE_URL}/notes/${id}`);
       fetchData();
     } catch (err) {
       console.error(err);
