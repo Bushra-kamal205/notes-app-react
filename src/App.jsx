@@ -16,7 +16,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   async function fetchData() {
     try {
       console.log("Backend URL:", BASE_URL);
-      const data = await axios.get(`${BASE_URL}/notes`);
+      const {data} = await axios.get(`${BASE_URL}/notes`);
       if (data.statusText !== "OK") throw new Error("Data not fetched");
       setNotes(data.data.note);
     } catch (err) {
