@@ -53,13 +53,13 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
   }
 
   return (
-   <div className="flex min-h-screen bg-[#e666ff] text-white">
+   <div className="flex min-h-screen bg-white text-black">
   <main className="flex-1 p-8">
-    <h1 className="text-2xl font-extrabold mb-6 text-white">✏️ Edit Note</h1>
+    <h1 className="text-2xl font-extrabold mb-6 text-black">✏️ Edit Note</h1>
 
     <form
       onSubmit={submitHandler}
-      className="space-y-4 bg-[#571357] p-6 rounded-lg shadow-md border border-[#880099]"
+      className="space-y-4 bg-[#D27D2D] p-6 rounded-lg shadow-md border border-[#CD7F32]"
     >
       {/* Title */}
       <input
@@ -68,7 +68,7 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
         placeholder="Enter Title..."
         value={note.title}
         onChange={changeHandler}
-        className="w-full p-3 rounded-lg bg-[#d57fff] text-white placeholder-white focus:ring-2 focus:ring-[#ab00ff] focus:outline-none"
+        className="w-full p-3 rounded-lg bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-[#CD7F32] focus:outline-none"
       />
 
       {/* Toolbar */}
@@ -79,8 +79,8 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={`px-3 py-1 rounded font-bold ${
               editor.isActive("bold")
-                ? "bg-[#c400cc] text-white"
-                : "bg-[#880099] text-white"
+                ? "bg-white text-[#A0522D]"
+                : "bg-[#A0522D] text-white"
             }`}
           >
             B
@@ -91,8 +91,8 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
             onClick={() => editor.chain().focus().toggleItalic().run()}
             className={`px-3 py-1 rounded italic ${
               editor.isActive("italic")
-                ? "bg-[#c400cc] text-white"
-                : "bg-[#880099] text-white"
+                ? "bg-white text-[#A0522D]"
+                : "bg-[#A0522D] text-white"
             }`}
           >
             I
@@ -103,8 +103,8 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
             onClick={() => editor.chain().focus().toggleUnderline().run()}
             className={`px-3 py-1 rounded underline ${
               editor.isActive("underline")
-                ? "bg-[#c400cc] text-white"
-                : "bg-[#880099] text-white"
+                ? "bg-white text-[#A0522D]"
+                : "bg-[#A0522D] text-white"
             }`}
           >
             U
@@ -113,13 +113,13 @@ const BASE_URL = import.meta.env.VITE_APP_BACKEND_URL;
       )}
 
       {/* Tiptap Editor */}
-      <div className="w-full p-3 rounded-lg bg-[#d57fff] text-white border border-[#880099] min-h-[200px]">
+      <div className="w-full p-3 rounded-lg bg-white text-black border border-[#CD7F32] min-h-[200px]">
         <EditorContent editor={editor} />
       </div>
 
       <button
         type="submit"
-        className="px-6 py-2 bg-[#880099] text-white rounded-lg font-bold hover:bg-[#4b0726] transition"
+        className="px-6 py-2 bg-[#A0522D] text-white rounded-lg font-bold hover:bg-white hover:text-[#A0522D] hover:border border-[#A0522D] border-2 transition"
       >
         Update Note
       </button>

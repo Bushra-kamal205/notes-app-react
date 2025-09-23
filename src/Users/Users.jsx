@@ -33,13 +33,13 @@ const navigate = useNavigate();
 }
     
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#e666ff]">
+    <div className="min-h-screen flex items-center justify-center bg-white">
       {/* Card */}
-      <div className="w-full max-w-md bg-[#571357] rounded-2xl shadow-xl p-8">
+      <div className="w-full max-w-md bg-[#D27D2D] rounded-2xl shadow-xl p-8">
         <h1 className="text-3xl font-extrabold text-white text-center">
           Create Account
         </h1>
-        <p className="text-gray-300 text-center mb-8">
+        <p className="text-gray-100 text-center mb-8">
           Sign up to get started
         </p>
 
@@ -54,7 +54,7 @@ const navigate = useNavigate();
               onChange={changeHandler}
               required
               placeholder="John"
-              className="w-full px-4 py-3 rounded-xl bg-[#d57fff] text-white placeholder-white focus:ring-2 focus:ring-[#ab00ff] focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-[#D27D2D] focus:outline-none"
             />
           </div>
 
@@ -68,7 +68,7 @@ const navigate = useNavigate();
               onChange={changeHandler}
               required
               placeholder="Doe"
-              className="w-full px-4 py-3 rounded-xl bg-[#d57fff] text-white placeholder-white focus:ring-2 focus:ring-[#ab00ff] focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-[#D27D2D] focus:outline-none"
             />
           </div>
 
@@ -82,7 +82,7 @@ const navigate = useNavigate();
               onChange={changeHandler}
               required
               placeholder="email@email.com"
-              className="w-full px-4 py-3 rounded-xl bg-[#d57fff] text-white placeholder-white focus:ring-2 focus:ring-[#ab00ff] focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-[#D27D2D] focus:outline-none"
             />
           </div>
 
@@ -96,14 +96,14 @@ const navigate = useNavigate();
               onChange={changeHandler}
               required
               placeholder="********"
-              className="w-full px-4 py-3 rounded-xl bg-[#d57fff] text-white placeholder-white focus:ring-2 focus:ring-[#ab00ff] focus:outline-none"
+              className="w-full px-4 py-3 rounded-xl bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-[#D27D2D] focus:outline-none"
             />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#880099] text-white py-3 rounded-xl font-bold hover:bg-[#c400cc] transition"
+            className="w-full bg-[#A0522D] text-white py-3 rounded-xl font-bold hover:bg-white hover:text-[#A0522D] hover:border border-[#A0522D] border-2 transition"
           >
             Sign Up
           </button>
